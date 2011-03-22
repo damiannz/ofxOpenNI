@@ -4,6 +4,7 @@
 void testApp::setup(){
 	context.setupUsingXMLFile();
 	depth.setup(&context);
+	context.disableLogging();
 	user.setup(&context, &depth);
 }
 
@@ -15,8 +16,8 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	//depth.draw(0,0,640,480);
-	//user.draw();
+	depth.draw(0,0,640,480);
+	user.draw();
 	ofxTrackedUser* tracked = user.getTrackedUser(0);
 	if(tracked != NULL) {
 		tracked->debugDraw();
